@@ -2,20 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+@layer base {
+  :root {
+    /* 浅色模式 */
+    --background-light: #f8fafc;
+    --text-light: #374151;
+    --primary-light: #3f20fb;
+    --secondary-light: #10b981;
+    --border-light: #e5e7eb;
+    --highlight-light: #facc15;
+    --error-light: #ef4444;
+
+    /* 黑夜模式 */
+    --background-dark: #111827;
+    --text-dark: #e5e7eb;
+    --primary-dark: #3f20fb;
+    --secondary-dark: #22d3ee;
+    --border-dark: #374151;
+    --highlight-dark: #facc15;
+    --error-dark: #f87171;
+  }
+  .nav-item {
+    @apply px-4 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:bg-white/10 hover:text-white transition duration-300;
+  }
+}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background-light);
+  color: var(--text-light);
+  transition: all 0.3s ease-in-out;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
 }
