@@ -12,6 +12,8 @@ export default {
       fontFamily: {
         sans: ['var(--font-inter)'],
         mono: ['var(--font-roboto-mono)'],
+        lexend: ['var(--font-lexend-sans)'],
+        code: ['var(--font-geist-mono)'],
       },
       colors: {
         background: 'var(--background)',

@@ -1,27 +1,30 @@
 'use client';
 import { motion } from 'motion/react';
+import Image from 'next/image';
+import me from '@/assets/images/me.png';
 
 export const Hero = () => {
   return (
     <>
       <section className='h-1/2 w-screen flex flex-col justify-center items-center text-center px-6 relative '>
-        <h1 className='text-gray-900 font-semibold text-7xl font-title'>UX</h1>
+        <div className='pt-60 '>
+          <Image src={me} alt='me icon' width={300} height={300} />
+        </div>
 
         {/* Parallax Scroll Animation */}
         <motion.div
           className='absolute inset-0 bg-cover bg-center'
-          // style={{ backgroundImage: "url('/hero-bg.jpg')" }}
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2 }}
         />
 
         <motion.h1
-          className='text-5xl font-bold text-gray-900 relative z-10'
+          className='text-5xl font-bold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          Hi, I’m [Your Name]
+          Hi, I’m Pan Pan
         </motion.h1>
         <motion.p
           className='text-xl text-gray-600 mt-4 relative z-10'
@@ -38,6 +41,7 @@ export const Hero = () => {
           {/* <Button size="lg">View Portfolio</Button> */}
         </motion.div>
       </section>
+
       <section className='h-screen w-screen flex flex-col justify-center items-center text-center px-6 relative'>
         <div className='absolute inset-0 top-0 md:-top-[200px] blur-[48px] z-0 '>
           <svg

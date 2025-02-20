@@ -2,7 +2,7 @@ const navTabs = ['Home', 'Projects', 'About'];
 export const Header = () => {
   return (
     <nav className='flex justify-center items-center fixed top-3 w-full z-10'>
-      <ul className='flex gap-4 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur'>
+      <ul className='flex gap-4 p-0.5 border border-purple-500/15 rounded-full bg-purple-400/10 backdrop-blur'>
         {navTabs.map((tab) => (
           <li key={tab} className='nav-item'>
             <a href={`#${tab}`}>{tab}</a>
