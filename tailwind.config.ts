@@ -13,6 +13,7 @@ export default {
         mono: ['var(--font-roboto-mono)'],
         sans: ['var(--font-inter-sans)'],
         code: ['var(--font-geist-mono)'],
+        serif: ['var(--font-serif)'],
       },
       colors: {
         background: 'var(--background)',

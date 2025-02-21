@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
+import { Geist_Mono, Inter, Luxurious_Roman } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const luxuriousRoman = Luxurious_Roman({
+  variable: '--font-serif',
   subsets: ['latin'],
+  weight: '400',
 });
 
 const geistMono = Geist_Mono({
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} antialiased`}
+        className={`${luxuriousRoman.variable} ${geistMono.variable} ${interSans.variable} antialiased`}
       >
         {children}
       </body>
