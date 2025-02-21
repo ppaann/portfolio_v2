@@ -1,13 +1,26 @@
 'use client';
-import { motion } from 'motion/react';
+import {
+  motion,
+  useAnimation,
+  useMotionValueEvent,
+  useScroll,
+} from 'motion/react';
 import Image from 'next/image';
 import me from '@/assets/images/me.png';
 
 export const Hero = () => {
+  const { scrollY } = useScroll();
+  const backgroundControls = useAnimation();
+  const floatingShapesControls = useAnimation();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    floatingShapesControls.start({ y: latest * 0.8 });
+  });
+
   return (
     <>
-      <section className='h-1/2 w-screen flex flex-col justify-center items-center text-center px-6 relative '>
-        <div className='pt-60 '>
+      <section className='w-screen flex flex-col justify-center items-center text-center px-6 relative '>
+        <div className='mt-52 '>
           <Image src={me} alt='me icon' width={300} height={300} />
         </div>
 
@@ -20,7 +33,7 @@ export const Hero = () => {
         />
 
         <motion.h1
-          className='text-5xl font-bold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
+          className='text-5xl font-inter font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -43,7 +56,10 @@ export const Hero = () => {
       </section>
 
       <section className='h-screen w-screen flex flex-col justify-center items-center text-center px-6 relative'>
-        <div className='absolute inset-0 top-0 md:-top-[200px] blur-[48px] z-0 '>
+        <motion.div
+          className='absolute inset-0 top-0 md:-top-[200px] blur-[48px] z-0 '
+          animate={backgroundControls}
+        >
           <svg
             viewBox='0 0 1440 914'
             fill='none'
@@ -95,7 +111,7 @@ export const Hero = () => {
               </linearGradient>
             </defs>
           </svg>
-        </div>
+        </motion.div>
         {/* Gradient Wave Animation */}
         <motion.div
           className='absolute inset-0 '
@@ -105,7 +121,10 @@ export const Hero = () => {
         />
 
         {/* Floating Shapes Animation */}
-        <motion.div className='absolute inset-0 flex justify-around items-start w-full h-full pointer-events-none'>
+        <motion.div
+          className='absolute inset-0 flex justify-around items-start w-full h-full pointer-events-none'
+          animate={floatingShapesControls}
+        >
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
