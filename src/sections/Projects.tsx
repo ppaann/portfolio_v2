@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'motion/react';
+import { calcGeneratorDuration, motion } from 'motion/react';
 import React from 'react';
 import Image from 'next/image';
 import websiteS24Home from '@/assets/images/website-s24-home.png';
@@ -55,18 +55,19 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className='relative bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 p-6 hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300 pt-12 pl-12'
+              className=' bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 p-6 hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300 pt-12 pl-12 sticky'
               whileHover={{ rotateY: 10 }}
+              style={{ top: `calc(64px + ${index * 40}px)` }}
             >
-              <div className='grid grid-cols-2 gap-4'>
-                <div>
+              <div className='grid grid-cols-2 gap-4 '>
+                <div className='relative pb-20'>
                   <p className='inline-flex font-bold font-sans uppercase text-sm tracking-wider bg-gradient-to-r from-purple-500 to-blue-700 bg-clip-text text-transparent'>
                     {project.company}
                   </p>
                   <h2 className='text-2xl font-semibold pt-4'>
                     {project.title}
                   </h2>
-                  <p className='text-base pt-2 text-gray-700'>
+                  <p className='pt-2 text-gray-700 text-sm'>
                     {project.description}
                   </p>
                   <div>
@@ -74,11 +75,13 @@ export const Projects = () => {
                       project.role.map((role, index) => (
                         <div key={index} className='pt-4'>
                           <p className='font-bold text-base'>{role.title}</p>
-                          <p className='text-gray-700'>{role.description}</p>
+                          <p className='text-gray-700 text-sm'>
+                            {role.description}
+                          </p>
                         </div>
                       ))}
                   </div>
-                  <div className='flex gap-4 pt-4 absolute bottom-6'>
+                  <div className='flex gap-4 pt-4 absolute bottom-0'>
                     {project.link && (
                       <a href={project.link} target='_blank'>
                         <Button className='bg-gradient-to-r from-purple-500 to-blue-700 font-semibold text-white/90 px-8 py-2 rounded-xl'>
