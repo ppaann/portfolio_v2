@@ -10,9 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
         mono: ['var(--font-roboto-mono)'],
-        inter: ['var(--font-inter-sans)'],
+        sans: ['var(--font-inter-sans)'],
         code: ['var(--font-geist-mono)'],
       },
       colors: {

@@ -6,11 +6,14 @@ const projects = ['Project 1', 'Project 2', 'Project 3'];
 
 export const Projects = () => {
   return (
-    <section className='w-screen py-40 bg-transparent px-10 relative h-[900px]'>
-      <div className=''>
-        <h2 className='text-4xl font-bold text-center text-[#5B8FB9]'>
+    <section className='w-screen py-40 bg-transparent px-10 relative '>
+      <div className='flex flex-col justify-center'>
+        <p className='uppercase font-semibold tracking-widest text-center bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'>
+          Real word project
+        </p>
+        <h1 className='text-6xl font-bold text-center text-gray-900 font-mono pt-8'>
           Portfolio
-        </h2>
+        </h1>
         <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {projects.map((project, index) => (
             <motion.div
