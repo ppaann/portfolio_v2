@@ -1,10 +1,12 @@
 'use client';
-import { calcGeneratorDuration, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import React from 'react';
 import Image from 'next/image';
 import websiteS24Home from '@/assets/images/website-s24-home.png';
 import websitePoleDance from '@/assets/images/website-pole-dance.png';
+import websitePortfolio from '@/assets/images/website-mimic-portfolio.png';
 import { Button } from '@headlessui/react';
+import { SectionHead } from '@/components/SectionHead';
 
 const projects = [
   {
@@ -39,18 +41,27 @@ const projects = [
     design: '/projects/ux-dancer',
     code: 'https://github.com/ppaann/vivian.pole.dance.app',
   },
+  {
+    title: 'Personal Portfolio Website',
+    company: 'Freelancer',
+    description:
+      'Mimic personal portfolio website with a focus on visual aesthetics and motion design.',
+    image: websitePortfolio,
+    link: 'https://portfoliowithtailwindmotion-hwyp5pjk6-pans-projects-d03820bd.vercel.app/',
+    code: 'https://github.com/ppaann/tailwind_motion',
+  },
 ];
 
 export const Projects = () => {
   return (
     <section className='w-screen py-40 bg-transparent px-10 relative '>
       <div className='flex flex-col justify-center max-w-7xl items-center mx-auto'>
-        <p className='uppercase font-sans font-bold tracking-widest text-center bg-gradient-to-r from-purple-400 to-blue-700 bg-clip-text text-transparent'>
-          Real word project
-        </p>
-        <h1 className='  text-6xl font-bold text-center text-gray-900 font-mono pt-8'>
-          Portfolio
-        </h1>
+        <SectionHead
+          title='Real word project'
+          header='Portfolio'
+          description='My projects'
+        />
+
         <div className='mt-10 flex flex-col gap-12'>
           {projects.map((project, index) => (
             <motion.div
@@ -64,10 +75,10 @@ export const Projects = () => {
                   <p className='inline-flex font-bold font-sans uppercase text-sm tracking-wider bg-gradient-to-r from-purple-500 to-blue-700 bg-clip-text text-transparent'>
                     {project.company}
                   </p>
-                  <h2 className='text-2xl font-semibold pt-4'>
+                  <h2 className='text-2xl font-semibold pt-2 font-serif'>
                     {project.title}
                   </h2>
-                  <p className='pt-2 text-gray-700 text-sm'>
+                  <p className='pt-4 text-gray-700 text-sm'>
                     {project.description}
                   </p>
                   <div>
