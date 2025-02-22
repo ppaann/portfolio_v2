@@ -111,9 +111,9 @@ export const Projects = () => {
                       </a>
                     )}
                     {project.code && (
-                      <a href={project.code} target='_blank'>
-                        <LinkButton>Code</LinkButton>
-                      </a>
+                      <LinkButton href={project.code} target='_blank'>
+                        Code
+                      </LinkButton>
                     )}
                   </div>
                 </div>

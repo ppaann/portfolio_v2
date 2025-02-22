@@ -6,7 +6,7 @@ import {
   ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
 import LinkedinIcon from '@/assets/icons/linkedin.svg';
-import { Button } from '@headlessui/react';
+import { Button } from '@/components/Button';
 
 const contacts = [
   {
@@ -42,7 +42,7 @@ export const Footer = () => {
               </p>
             </div>
             <div>
-              <Button className='gradient-bg inline-flex justify-center items-center rounded-2xl h-12 text-white/90 font-semibold text-base gap-2 px-12 hover:cursor-pointer transition duration-300 ease-in-out hover:bg-blue-700 hover:shadow-xl hover:scale-105'>
+              <Button>
                 <span>Contact Me</span>
                 <ArrowUpRightIcon className='size-3' />
               </Button>
