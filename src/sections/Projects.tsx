@@ -5,8 +5,8 @@ import Image from 'next/image';
 import websiteS24Home from '@/assets/images/website-s24-home.png';
 import websitePoleDance from '@/assets/images/website-pole-dance.png';
 import websitePortfolio from '@/assets/images/website-mimic-portfolio.png';
-import { Button } from '@headlessui/react';
 import { SectionHead } from '@/components/SectionHead';
+import { Button, SecondaryButton, LinkButton } from '@/components/Button';
 
 const projects = [
   {
@@ -62,12 +62,12 @@ export const Projects = () => {
           description='My projects'
         />
 
-        <div className='mt-10 flex flex-col gap-12'>
+        <div className='mt-20 flex flex-col gap-12 '>
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className=' bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 p-6 hover:shadow-xl transition-transform transform hover:-translate-y-2 duration-300 pt-12 pl-12 sticky'
-              whileHover={{ rotateY: 10 }}
+              className=' bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 p-6 hover:shadow-xl transition-transform transform  duration-300 pt-12 pl-12 sticky'
+              // whileHover={{ rotateY: 10 }}
               style={{ top: `calc(64px + ${index * 40}px)` }}
             >
               <div className='grid grid-cols-2 gap-4 '>
@@ -102,18 +102,17 @@ export const Projects = () => {
                     )}
                     {project.design && (
                       <a href={project.design} target='_blank' className='pl-8'>
-                        <Button className=' relative inline-block p-[2px] bg-gradient-to-r from-purple-500  to-red-500 rounded-xl'>
+                        <SecondaryButton>Design</SecondaryButton>
+                        {/* <Button className=' relative inline-block p-[2px] bg-gradient-to-r from-purple-500  to-red-500 rounded-xl'>
                           <span className='relative block px-8 py-[7px] text-base font-semibold text-purple-600 bg-white rounded-xl'>
                             Design
                           </span>
-                        </Button>
+                        </Button> */}
                       </a>
                     )}
                     {project.code && (
                       <a href={project.code} target='_blank'>
-                        <Button className='bg-white text-purple-600 font-semibold px-8 py-2 rounded-md'>
-                          Code
-                        </Button>
+                        <LinkButton>Code</LinkButton>
                       </a>
                     )}
                   </div>
