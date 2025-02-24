@@ -35,7 +35,7 @@ export const Footer = () => {
           <div className='flex flex-row justify-between items-center mt-32 w-full max-w-3xl bg-white/30 rounded-3xl px-6 py-10 shadow-md'>
             <div>
               <h2 className='font-serif text-2xl font-semibold gradient-text'>
-                Let's create something amazing together!
+                Let&apos;s create something amazing together!
               </h2>
               <p className='pt-2 font-sans text-sm'>
                 Bridging the gap between design and development!

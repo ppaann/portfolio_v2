@@ -121,7 +121,7 @@ const Demo = () => {
           <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
             {skills.map((skill, i) => (
               <div
-                key={skill.name}
+                key={i}
                 ref={(el) => {
                   if (el) revealRefs.current.push(el);
                 }}
