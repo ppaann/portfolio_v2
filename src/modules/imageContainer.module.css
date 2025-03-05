@@ -1,0 +1,95 @@
+.imageContainer {
+  max-width: 780px;
+  position: relative;
+  height: 400px;
+  margin: 0 auto;
+  & div {
+    box-shadow: 2px 2px 5px 1px #00000033;
+    max-height: 100%;
+    overflow: hidden;
+  }
+}
+
+.left {
+  position: absolute;
+  width: 20%;
+  height: 80%;
+  left: 0;
+  bottom: 0;
+  z-index: 101;
+}
+.mid {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  z-index: 100;
+  /* animation-name: fade-in_top; */
+}
+
+.right {
+  position: absolute;
+  left: 80%;
+  transform: translate(-50%);
+  width: 20%;
+  height: 80%;
+  bottom: 0;
+  z-index: 101;
+  /* animation-name: fade-in_right; */
+}
+
+.half-left {
+  width: 45%;
+}
+.half-right {
+  padding: 5%;
+  width: 45%;
+}
+
+@keyframes fade-in_left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-in_top {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-in_right {
+  0% {
+    opacity: 0;
+    transform: translate3d(-30px, 0px, 0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 48em) {
+  .hideWhenSmall {
+    display: none;
+  }
+  .mid {
+    width: 80%;
+  }
+  .imageContainer {
+    min-height: 300px;
+  }
+  .imageContainer [class^='half-'] {
+    max-width: 87%;
+  }
+}
