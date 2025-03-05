@@ -62,3 +62,7 @@ article h3 {
 article p {
   @apply py-2;
 }
+
+article section {
+  @apply px-8;
+}
