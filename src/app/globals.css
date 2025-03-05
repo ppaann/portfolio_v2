@@ -53,3 +53,12 @@ body {
   background-color: var(--background-dark);
   color: var(--text-dark);
 }
+article h2 {
+  @apply text-3xl font-bold mb-6;
+}
+article h3 {
+  @apply text-2xl font-bold mt-10 mb-4;
+}
+article p {
+  @apply py-2;
+}

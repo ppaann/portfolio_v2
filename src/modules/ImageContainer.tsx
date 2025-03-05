@@ -42,7 +42,9 @@ function ImageContainer({
   }
 
   return (
-    <div className={classes.imageContainer}>
+    <div
+      className={`${classes.imageContainer} max-h-[50vh] h-[500px] max-w-5xl `}
+    >
       <motion.div
         className={`${classes.left} ${
           hideWhenSmall ? classes.hideWhenSmall : ''
@@ -72,36 +74,6 @@ function ImageContainer({
         <Image src={rightSrc} alt={rightAlt} fill className={classes.image} />
       </motion.div>
     </div>
-    // <div className={classes.imageContainer}>
-    //   <div className={classes.mid}>
-    //     <Image
-    //       src={middleSrc}
-    //       alt={middleAlt}
-    //       fill
-    //       style={{ objectFit: 'cover', position: 'absolute' }}
-    //     />
-    //   </div>
-    //   <div
-    //     className={`${classes.left}  ${hideWhenSmall ? 'hideWhenSmall' : ''}`}
-    //   >
-    //     <Image
-    //       fill
-    //       src={leftSrc}
-    //       alt={leftAlt}
-    //       style={{ objectFit: 'cover', position: 'absolute' }}
-    //     />
-    //   </div>
-    //   <div
-    //     className={`${classes.right}  ${hideWhenSmall ? 'hideWhenSmall' : ''}`}
-    //   >
-    //     <Image
-    //       fill
-    //       src={rightSrc}
-    //       alt={rightAlt}
-    //       style={{ objectFit: 'cover', position: 'absolute' }}
-    //     />
-    //   </div>
-    // </div>
   );
 }
 
