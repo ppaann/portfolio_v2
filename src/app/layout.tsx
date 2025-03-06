@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Luxurious_Roman } from 'next/font/google';
 import './globals.css';
+import { Navigation } from '@/sections';
 
 const luxuriousRoman = Luxurious_Roman({
   variable: '--font-serif',
@@ -32,7 +33,11 @@ export default function RootLayout({
       <body
         className={`${luxuriousRoman.variable} ${geistMono.variable} ${interSans.variable} antialiased`}
       >
-        {children}
+        <header className='row-start-1 flex items-center justify-center'>
+          <Navigation />
+        </header>
+        <main>{children}</main>
+        <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'></footer>
       </body>
     </html>
   );

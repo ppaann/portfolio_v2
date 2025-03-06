@@ -29,7 +29,6 @@ const projects = [
     ],
     link: 'https://www.suomi24.fi/',
     design: '/projects/suomi24',
-    code: 'https://github.com',
   },
   {
     title: 'Website Professional Dancer',

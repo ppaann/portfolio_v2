@@ -19,6 +19,7 @@ const contacts = [
     href: 'https://www.linkedin.com/in/panpan/',
     icon: LinkedinIcon,
   },
+  { name: 'Previous Version', href: 'https://ppaann.github.io' },
 ];
 
 export const Footer = () => {

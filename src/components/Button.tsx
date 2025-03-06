@@ -10,7 +10,7 @@ export const Button = ({
   return (
     <HeadlessButton
       className={twMerge(
-        'gradient-bg inline-flex justify-center items-center rounded-2xl h-10 text-white/90 font-semibold text-base gap-2 px-12 hover:cursor-pointer transition duration-200 ease-in-out hover:bg-blue-700 hover:shadow-xl hover:scale-105',
+        'gradient-bg inline-flex justify-center items-center rounded-2xl h-10 text-white/90 font-semibold text-base gap-2 px-12 hover:cursor-pointer transition duration-200 ease-in-out hover:bg-blue-700 hover:shadow-xl',
         className
       )}
       {...others}
@@ -28,7 +28,7 @@ export const SecondaryButton = ({
   return (
     <HeadlessButton
       className={twMerge(
-        ' relative  p-[2px] bg-gradient-to-r from-purple-500  to-red-500 rounded-xl  inline-flex justify-center items-center hover:cursor-pointer transition duration-200 ease-in-out  hover:shadow-md hover:scale-105',
+        ' relative  p-[2px] bg-gradient-to-r from-purple-500  to-red-500 rounded-xl  inline-flex justify-center items-center hover:cursor-pointer transition duration-200 ease-in-out  hover:shadow-lg',
         className
       )}
       {...others}
@@ -48,7 +48,7 @@ export const LinkButton = ({
   return (
     <a
       className={twMerge(
-        'bg-white text-purple-600 px-8 py-2 rounded-mdgradient-text inline-flex justify-center items-center font-semibold text-base gap-2 hover:cursor-pointer hover:scale-105 transition duration-300 ease-in-out hover:text-blue-700 ',
+        'bg-white text-purple-600 px-8 py-2 rounded-mdgradient-text inline-flex justify-center items-center font-semibold text-base gap-2 hover:cursor-pointer transition duration-300 ease-in-out hover:[text-shadow:#8200db_1px_1px_20px]',
         className
       )}
       {...others}

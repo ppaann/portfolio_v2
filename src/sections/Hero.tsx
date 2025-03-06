@@ -37,15 +37,19 @@ export const Hero = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.2 }}
         />
-
-        <motion.h1
-          className='text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Hi, I’m Pan Pan
-        </motion.h1>
+        <div className='inline-flex gap-4'>
+          <h1 className='text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'>
+            Hi, I&apos;m
+          </h1>
+          <motion.h1
+            className='text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Pan Pan
+          </motion.h1>
+        </div>
         <motion.p
           className='text-xl text-gray-600 mt-4 relative z-10'
           initial={{ opacity: 0 }}
