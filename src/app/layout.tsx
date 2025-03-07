@@ -33,11 +33,10 @@ export default function RootLayout({
       <body
         className={`${luxuriousRoman.variable} ${geistMono.variable} ${interSans.variable} antialiased`}
       >
-        <header className='row-start-1 flex items-center justify-center'>
-          <Navigation />
-        </header>
+        <Navigation />
+
         <main>{children}</main>
-        <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'></footer>
+        <footer className='flex gap-6 flex-wrap items-center justify-center'></footer>
       </body>
     </html>
   );

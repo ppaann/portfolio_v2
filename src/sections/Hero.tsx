@@ -24,10 +24,10 @@ export const Hero = () => {
   });
 
   return (
-    <section className='h-[900px] w-screen relative '>
-      <div className='flex flex-col justify-center items-center text-center pt-60'>
-        <div className=''>
-          <Image src={me} alt='me icon' width={300} height={300} />
+    <section className='md:h-[900px] w-screen relative '>
+      <div className='flex flex-col justify-center items-center text-center pt-32 lg:pt-60'>
+        <div className='w-52 h-40 sm:w-64 sm:h-48 md:w-96 md:h-72 relative'>
+          <Image src={me} alt='me icon' fill />
         </div>
 
         {/* Parallax Scroll Animation */}
@@ -38,11 +38,11 @@ export const Hero = () => {
           transition={{ duration: 0.2 }}
         />
         <div className='inline-flex gap-4'>
-          <h1 className='text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'>
+          <h1 className='text-3xl md:text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'>
             Hi, I&apos;m
           </h1>
           <motion.h1
-            className='text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
+            className='text-3xl md:text-5xl font-sans drop-shadow-lg font-extrabold text-gray-900 relative z-10 bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -68,7 +68,7 @@ export const Hero = () => {
           </Button>
         </motion.div>
       </div>
-      <div className='relative mt-20'>
+      <div className='relative mt-4 md:mt-20'>
         <div className='absolute inset-0 top-0 md:-top-[200px] blur-[48px] z-0 '>
           <Wave />
         </div>
@@ -82,7 +82,7 @@ export const Hero = () => {
 
         {/* Floating Shapes Animation */}
         <motion.div
-          className='absolute inset-0 flex justify-around items-start w-full h-full pointer-events-none'
+          className='hidden md:absolute inset-0 md:flex justify-around items-start w-full h-full pointer-events-none'
           animate={floatingShapesControls}
         >
           {[...Array(5)].map((_, i) => (
