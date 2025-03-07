@@ -28,7 +28,7 @@ export const Footer = () => {
     <footer className='flex w-full justify-center md:h-96 overflow-clip'>
       <div className='w-screen flex flex-col items-center relative'>
         <div className='absolute inset-0 w-full h-full -z-20'>
-          <div className='absolute w-full h-44 bottom-0 backdrop-blur-2xl bg-gradient-to-b from-transparent to-purple-500/50'></div>
+          <div className='absolute w-full h-80 md:h-44 bottom-0 backdrop-blur-2xl bg-gradient-to-b from-transparent  via-purple-500/60 to-purple-500/80'></div>
           <div className='blur-2xl'>
             <Wave className='absolute -z-10' viewHeight={440} />
           </div>
