@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Luxurious_Roman } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/sections';
+import { Analytics } from '@vercel/analytics/react';
 
 const luxuriousRoman = Luxurious_Roman({
   variable: '--font-serif',
@@ -36,7 +37,7 @@ export default function RootLayout({
         <Navigation />
 
         <main>{children}</main>
-        <footer className='flex gap-6 flex-wrap items-center justify-center'></footer>
+        <Analytics />
       </body>
     </html>
   );
