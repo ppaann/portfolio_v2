@@ -65,7 +65,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className='pt-6 pl-6 pr-6 md:pr-0 md:pt-12 md:pl-12 bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 hover:shadow-xl transition-transform transform  duration-300  sticky'
+              className='mx-4 pt-6 pl-6 pr-6 md:pr-0 md:pt-12 md:pl-12 bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 hover:shadow-xl transition-transform transform  duration-300  sticky'
               style={{ top: `calc(64px + ${index * 40}px)` }}
             >
               <div className='w-full grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-4 '>
