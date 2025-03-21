@@ -99,7 +99,7 @@ export const Projects = () => {
                         target='_blank'
                         className='inline-flex justify-center'
                       >
-                        <Button className='bg-gradient-to-r from-purple-500 to-blue-700 font-semibold text-white/90 px-8 py-2 rounded-xl'>
+                        <Button className='md:w-auto bg-gradient-to-r from-purple-500 to-blue-700 font-semibold text-white/90 px-8 py-2 rounded-xl'>
                           Live
                         </Button>
                       </a>

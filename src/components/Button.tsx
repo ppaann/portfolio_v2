@@ -10,7 +10,7 @@ export const Button = ({
   return (
     <HeadlessButton
       className={twMerge(
-        'w-80 md:w-auto gradient-bg inline-flex justify-center items-center rounded-2xl h-10 text-white/90 font-semibold text-base gap-2 px-12 hover:cursor-pointer transition duration-200 ease-in-out hover:bg-blue-700 hover:shadow-xl',
+        'w-full gradient-bg inline-flex justify-center items-center rounded-2xl h-10 text-white/90 font-semibold text-base gap-2 px-12 hover:cursor-pointer transition duration-200 ease-in-out hover:bg-blue-700 hover:shadow-xl',
         className
       )}
       {...others}
