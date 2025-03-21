@@ -53,7 +53,7 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section className='w-screen py-16 md:py-40 bg-transparent md:px-10 relative '>
+    <section className='w-screen py-16 md:pt-20 md:pb-40 bg-transparent md:px-10 relative '>
       <div className='flex flex-col justify-center max-w-7xl items-center mx-auto'>
         <SectionHead
           title='Real word project'
@@ -65,11 +65,11 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className='mx-4 pt-6 pl-6 pr-6 md:pr-0 md:pt-12 md:pl-12 bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 hover:shadow-xl transition-transform transform  duration-300  sticky'
+              className='mx-4 pt-6 pl-6 pr-6 md:pr-0 md:pt-12 md:pd-24 md:pl-12 bg-white border-purple-400/20 border rounded-xl shadow-sm shadow-purple-200 hover:shadow-xl transition-transform transform  duration-300  sticky'
               style={{ top: `calc(64px + ${index * 40}px)` }}
             >
               <div className='w-full grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-4 '>
-                <div className='relative pb-4 flex flex-col justify-between'>
+                <div className='relative pb-4 md:pb-12 flex flex-col justify-between'>
                   <div>
                     <p className='inline-flex font-bold font-sans uppercase text-sm tracking-wider bg-gradient-to-r from-purple-500 to-blue-700 bg-clip-text text-transparent'>
                       {project.company}
@@ -92,7 +92,7 @@ export const Projects = () => {
                         ))}
                     </div>
                   </div>
-                  <div className='flex flex-col justify-center md:flex-row md:justify-start gap-4 pt-4 bottom-0'>
+                  <div className='flex flex-col justify-center md:flex-row md:justify-start gap-4 pt-4 md:pt-12 bottom-0'>
                     {project.link && (
                       <a
                         href={project.link}

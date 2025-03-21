@@ -25,7 +25,7 @@ export const Hero = () => {
 
   return (
     <section className='md:h-[900px] w-screen relative '>
-      <div className='flex flex-col justify-center items-center text-center pt-32 lg:pt-60'>
+      <div className='flex flex-col justify-center items-center text-center pt-32 lg:pt-56'>
         <div className='w-52 h-40 sm:w-64 sm:h-48 md:w-96 md:h-72 relative'>
           <Image src={me} alt='me icon' fill />
         </div>
@@ -69,7 +69,7 @@ export const Hero = () => {
         </motion.div>
       </div>
       <div className='relative mt-4 md:mt-20'>
-        <div className='absolute inset-0 top-0 md:-top-[200px] blur-[48px] z-0 '>
+        <div className='absolute inset-0 top-0 md:-top-[400px] blur-[48px] z-0 '>
           <Wave />
         </div>
         {/* Gradient Wave Animation */}

@@ -23,7 +23,7 @@ export const Navigation = () => {
         <span className='p-0.5 font-semibold text-sm gradient-text hidden sm:block sm:right-6 md:right-20 absolute'>
           <a
             href='/resume_Pan.pdf'
-            className='inline-flex gap-2 items-center justify-center hover:shadow-sm hover:shadow-purple-500/20'
+            className='inline-flex gap-2 items-center justify-center hover:cursor-pointer transition duration-300 ease-in-out hover:[text-shadow:#8200db_1px_1px_20px]'
             target='_blank'
             rel='noopener noreferrer'
           >

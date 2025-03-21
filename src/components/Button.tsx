@@ -48,7 +48,7 @@ export const LinkButton = ({
   return (
     <a
       className={twMerge(
-        'bg-white w-full md:w-24 text-purple-600 px-8 py-2 rounded-mdgradient-text inline-flex justify-center items-center font-semibold text-base gap-2 hover:cursor-pointer transition duration-300 ease-in-out hover:[text-shadow:#8200db_1px_1px_20px]',
+        'bg-white w-full md:w-24 text-purple-600 px-8 py-2 rounded-md gradient-text inline-flex justify-center items-center font-semibold text-base gap-2 hover:cursor-pointer transition duration-300 ease-in-out hover:[text-shadow:#8200db_1px_1px_20px]',
         className
       )}
       {...others}
