@@ -19,7 +19,6 @@ const NavLink = ({ href, name }: NavLinkProps) => {
   return (
     <Link
       href={href}
-      target='_blank'
       className={twMerge(
         'nav-item',
         `${

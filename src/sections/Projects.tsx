@@ -57,8 +57,8 @@ export const Projects = () => {
       <div className='flex flex-col justify-center max-w-7xl items-center mx-auto'>
         <SectionHead
           title='Real word project'
-          header='Portfolio'
-          description='My projects'
+          header='Projects'
+          description='My Design and Development Projects'
         />
 
         <div className='mt-8 md:mt-20 flex flex-col gap-12 '>
