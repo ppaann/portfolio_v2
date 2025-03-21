@@ -1,7 +1,7 @@
 import { SectionHead } from '@/components/SectionHead';
 export const About = () => {
   return (
-    <section className='py-8 md:py-20 bg-transparent px-10 flex flex-col items-center '>
+    <section className='py-8 md:py-20 bg-transparent px-10 flex flex-col items-center mx-auto'>
       <SectionHead
         title='About Me'
         header='UX Developer'
