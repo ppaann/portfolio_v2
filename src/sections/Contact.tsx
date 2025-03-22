@@ -1,87 +1,15 @@
 'use client';
-import React, { useState } from 'react';
 import { Button } from '@/components/Button';
-
+import { useContactForm } from './useContactForm';
 export const Contact: React.FC = () => {
-  // Form state
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    phone: '',
-  });
-
-  // Error state
-  const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    subject: false,
-    message: false,
-  });
-
-  // Success message state
-  const [showSuccess, setShowSuccess] = useState(false);
-
-  // Handle input changes
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // Clear error when typing
-    if (errors[name as keyof typeof errors]) {
-      setErrors({
-        ...errors,
-        [name]: false,
-      });
-    }
-  };
-
-  // Form validation
-  const validateForm = () => {
-    const newErrors = {
-      name: !formData.name.trim(),
-      email:
-        !formData.email.trim() ||
-        !formData.email.includes('@') ||
-        !formData.email.includes('.'),
-      subject: !formData.subject.trim(),
-      message: !formData.message.trim(),
-    };
-
-    setErrors(newErrors);
-    return !Object.values(newErrors).some((error) => error);
-  };
-
-  // Form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (validateForm()) {
-      // In a real app, you would send the form data to your backend here
-      console.log('Form submitted:', formData);
-
-      // Show success message
-      setShowSuccess(true);
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: '',
-          phone: '',
-        });
-        setShowSuccess(false);
-      }, 3000);
-    }
-  };
+  const {
+    formData,
+    handleChange,
+    errors,
+    isSubmitting,
+    handleSubmit,
+    showSuccess,
+  } = useContactForm();
 
   return (
     <div className='flex items-center justify-center p-6'>
@@ -155,39 +83,6 @@ export const Contact: React.FC = () => {
 
           <div>
             <label
-              htmlFor='subject'
-              className='block text-sm font-medium text-gray-700 mb-1'
-            >
-              Subject <span className='text-red-500'>*</span>
-            </label>
-            <div
-              className={`relative ${
-                formData.subject &&
-                'focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-opacity-50 rounded-md'
-              }`}
-            >
-              <input
-                type='text'
-                id='subject'
-                name='subject'
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder='What is this regarding?'
-                className={`w-full px-4 py-3 bg-white border ${
-                  errors.subject ? 'border-red-500' : 'border-gray-300'
-                } rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
-                required
-              />
-            </div>
-            {errors.subject && (
-              <p className='mt-1 text-sm text-red-600'>
-                Please enter a subject
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label
               htmlFor='message'
               className='block text-sm font-medium text-gray-700 mb-1'
             >
@@ -244,8 +139,9 @@ export const Contact: React.FC = () => {
             <Button
               type='submit'
               className='w-full px-4 py-3 bg-gradient-to-r from-purple-500 to-red-500 text-white rounded-md hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'
+              disabled={isSubmitting}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </div>
 
