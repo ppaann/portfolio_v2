@@ -7,6 +7,7 @@ import {
 } from '@heroicons/react/24/outline';
 import LinkedinIcon from '@/assets/icons/linkedin.svg';
 import { Button } from '@/components/Button';
+import Link from 'next/link';
 
 const contacts = [
   {
@@ -45,7 +46,7 @@ export const Footer = () => {
             </div>
             <div>
               <Button className='px-4 md:w-36'>
-                <span>Contact Me</span>
+                <Link href={'/contact'}>Contact Me</Link>
                 <ArrowUpRightIcon className='size-3' />
               </Button>
             </div>
