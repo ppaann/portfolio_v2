@@ -5,10 +5,30 @@ import Image from 'next/image';
 import websiteS24Home from '@/assets/images/website-s24-home.png';
 import websitePoleDance from '@/assets/images/website-pole-dance.png';
 import websitePortfolio from '@/assets/images/website-mimic-portfolio.png';
+import caseBanner from '@/assets/images/caseBanner.jpg';
 import { SectionHead } from '@/components/SectionHead';
 import { Button, SecondaryButton, LinkButton } from '@/components/Button';
 
 const projects = [
+  {
+    title: 'Case Study: Elevating UI-to-Code Workflow through UX Engineering',
+    company: 'Microsoft',
+    description:
+      'Redesigned Microsoft&apos;s SW Variant Tool with AngularJS and Bootstrap. Improved dev speed by 25%, cut bugs by 40%, and reduced deployment time by 30% using modular design, prototyping, and CI/CD.',
+    image: caseBanner,
+    role: [
+      {
+        title: 'UX Designer',
+        description: 'Workflow design and wireframes.',
+      },
+      {
+        title: 'Frontend Developer',
+        description:
+          'Building a modular UI with AngularJS/Bootstrap and CI/CD.',
+      },
+    ],
+    design: '/projects/uxengineering',
+  },
   {
     title: 'Redesign Suomi24.fi',
     company: 'Aller Media',
@@ -24,7 +44,7 @@ const projects = [
       {
         title: 'Frontend Developer',
         description:
-          'I modernized the frontend codebase, transitioned it from FlightJS to React framework.',
+          'Modernized the frontend codebase, transitioned it from FlightJS to React framework.',
       },
     ],
     link: 'https://www.suomi24.fi/',

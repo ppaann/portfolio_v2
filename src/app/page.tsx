@@ -1,7 +1,6 @@
 import { Hero } from '@/sections/Hero';
 import { Projects } from '@/sections/Projects';
 import { About } from '@/sections/About';
-import { Footer } from '@/sections/Footer';
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <Hero />
       <Projects />
       <About />
-      <Footer />
     </div>
   );
 }

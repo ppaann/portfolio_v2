@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Luxurious_Roman } from 'next/font/google';
 import './globals.css';
 import { Navigation } from '@/sections';
+import { Footer } from '@/sections/Footer';
 import { Analytics } from '@vercel/analytics/react';
 
 const luxuriousRoman = Luxurious_Roman({
@@ -37,6 +38,8 @@ export default function RootLayout({
         <Navigation />
 
         <main>{children}</main>
+
+        <Footer />
         <Analytics />
       </body>
     </html>

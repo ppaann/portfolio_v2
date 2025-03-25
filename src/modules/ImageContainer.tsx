@@ -46,30 +46,38 @@ function ImageContainer({
     <div
       className={`${classes.imageContainer} max-h-[50vh]  h-96 md:h-[500px] max-w-4xl `}
     >
-      <motion.div
-        className={twMerge(
-          classes.left,
-          hideWhenSmall ? classes.hideWhenSmall : ''
-        )}
-        initial={{ x: '-100%', opacity: 0 }}
-        animate={{ x: '10%', opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Image src={leftSrc} alt={leftAlt} fill className={classes.image} />
-      </motion.div>
+      {leftSrc == '' ? (
+        ''
+      ) : (
+        <motion.div
+          className={twMerge(
+            classes.left,
+            hideWhenSmall ? classes.hideWhenSmall : ''
+          )}
+          initial={{ x: '-100%', opacity: 0 }}
+          animate={{ x: '10%', opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image src={leftSrc} alt={leftAlt} fill className={classes.image} />
+        </motion.div>
+      )}
       <div className={classes.mid}>
         <Image src={middleSrc} alt={middleAlt} fill className={classes.image} />
       </div>
-      <motion.div
-        className={`${classes.right} ${
-          hideWhenSmall ? classes.hideWhenSmall : ''
-        }`}
-        initial={{ x: '100%', opacity: 0 }}
-        animate={{ x: '-10%', opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Image src={rightSrc} alt={rightAlt} fill className={classes.image} />
-      </motion.div>
+      {rightSrc == '' ? (
+        ''
+      ) : (
+        <motion.div
+          className={`${classes.right} ${
+            hideWhenSmall ? classes.hideWhenSmall : ''
+          }`}
+          initial={{ x: '100%', opacity: 0 }}
+          animate={{ x: '-10%', opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image src={rightSrc} alt={rightAlt} fill className={classes.image} />
+        </motion.div>
+      )}
     </div>
   );
 }
