@@ -2,32 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 @layer base {
   :root {
-    /* 浅色模式 */
-    --background-light: #f8fafc;
-    --text-light: #374151;
-    --primary-light: #3f20fb;
-    --secondary-light: #10b981;
-    --border-light: #e5e7eb;
-    --highlight-light: #facc15;
-    --error-light: #ef4444;
-
-    /* 黑夜模式 */
-    --background-dark: #111827;
-    --text-dark: #e5e7eb;
-    --primary-dark: #3f20fb;
-    --secondary-dark: #22d3ee;
-    --border-dark: #374151;
-    --highlight-dark: #facc15;
-    --error-dark: #f87171;
+    --bg: #f8fafc;
+    --text: #374151;
+    --primary: #3f20fb;
+    --secondary: #10b981;
+    --border: #e5e7eb;
+    --highlight: #facc15;
+    --error: #ef4444;
+    --dot: #f8d784; /* golden */
   }
+
+  .dark {
+    --bg: #111827;
+    --text: #e5e7eb;
+    --primary: #3f20fb;
+    --secondary: #22d3ee;
+    --border: #374151;
+    --highlight: #facc15;
+    --error: #f87171;
+    --dot: #ffffff; /* white */
+  }
+  /* ============================= */
+  /* 🧩 Usage Example in Utilities */
+  /* ============================= */
+  /* Example Tailwind component using CSS variables:
+<div className="bg-[var(--bg)] text-[var(--text)] border border-[var(--border)]">
+  <h1 className="text-[var(--primary)]">Hello</h1>
+</div>
+*/
+
+  /* You can now use these vars in JS (e.g., canvas) too:
+   const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+*/
+
   .nav-item {
     @apply px-4 py-1.5 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-600/50 hover:text-white transition duration-300;
   }
@@ -43,16 +58,12 @@
 }
 
 body {
-  background-color: var(--background-light);
-  color: var(--text-light);
+  background-color: var(--bg);
+  color: var(--text);
   transition: all 0.3s ease-in-out;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.dark-mode {
-  background-color: var(--background-dark);
-  color: var(--text-dark);
-}
 article h2 {
   @apply text-3xl font-bold mb-6;
 }

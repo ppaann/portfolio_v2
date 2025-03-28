@@ -16,6 +16,16 @@ const CanvasParticles = () => {
   const maxDist = 120;
   const spotlightRadius = 180;
 
+  const hexToRgb = (hex: string) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(
+          result[3],
+          16
+        )}`
+      : '0,0,0'; // fallback
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
@@ -23,6 +33,12 @@ const CanvasParticles = () => {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    const getCSSVar = (name: string): string =>
+      getComputedStyle(document.body).getPropertyValue(name).trim();
+
+    const dotColor = getCSSVar('--dot'); // "#f8d784"
+    const dotRGB = hexToRgb(dotColor); // Convert hex to RGB for use in canvas
 
     for (let i = 0; i < numParticles; i++) {
       particles.push({
@@ -73,7 +89,7 @@ const CanvasParticles = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, isMouse ? 3 : 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${isMouse ? 0.8 : brightness})`;
+        ctx.fillStyle = `rgba(${dotRGB},${isMouse ? 0.8 : brightness})`;
         ctx.fill();
       }
 
@@ -86,23 +102,35 @@ const CanvasParticles = () => {
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
+
           if (dist < maxDist) {
-            let alpha = 0.1 + 0.2 * (1 - dist / maxDist); // default dimmed line
+            // Midpoint of the line
+            const mx = (a.x + b.x) / 2;
+            const my = (a.y + b.y) / 2;
 
-            // === Boost alpha if either point is in spotlight ===
+            // Distance to mouse
+            let mouseAlpha = 0;
             if (mouse.x !== null && mouse.y !== null) {
-              const isInSpotlight = (p: typeof a) => {
-                const mx = p.x - mouse.x!;
-                const my = p.y - mouse.y!;
-                return Math.sqrt(mx * mx + my * my) < spotlightRadius;
-              };
-
-              if (isInSpotlight(a) || isInSpotlight(b)) {
-                alpha = 1.0;
+              const mDist = Math.sqrt(
+                (mx - mouse.x) ** 2 + (my - mouse.y) ** 2
+              );
+              if (mDist < spotlightRadius) {
+                mouseAlpha = 1 - mDist / spotlightRadius;
               }
             }
 
-            ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+            // Base opacity from distance between particles
+            const baseAlpha = 0.2 * (1 - dist / maxDist);
+
+            // Final alpha blends both
+            const finalAlpha = baseAlpha + mouseAlpha * 0.8; // brighten near cursor
+
+            // Optional: gradient stroke (if you want fancier fade)
+            const gradient = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+            gradient.addColorStop(0, `rgba(${dotRGB}, ${finalAlpha})`);
+            gradient.addColorStop(1, `rgba(${dotRGB}, ${finalAlpha * 0.8})`);
+
+            ctx.strokeStyle = gradient;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -136,7 +164,7 @@ const CanvasParticles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className='fixed top-0 left-0 w-full h-full z-[-1] bg-black'
+      className='fixed top-0 left-0 w-full h-full z-[-1] dark:bg-black'
     />
   );
 };
