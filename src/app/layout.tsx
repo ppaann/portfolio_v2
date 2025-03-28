@@ -4,6 +4,7 @@ import './globals.css';
 import { Navigation } from '@/sections';
 import { Footer } from '@/sections/Footer';
 import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from 'next-themes';
 
 const luxuriousRoman = Luxurious_Roman({
   variable: '--font-serif',
@@ -31,16 +32,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={`${luxuriousRoman.variable} ${geistMono.variable} ${interSans.variable} antialiased`}
       >
-        <Navigation />
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <Navigation />
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer />
-        <Analytics />
+          <Footer />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

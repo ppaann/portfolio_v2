@@ -13,7 +13,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setDark(!dark)}
-      className='fixed top-4 right-4 z-50 px-4 py-2 bg-gray-200 dark:bg-gray-800 text-black dark:text-white rounded'
+      className='fixed top-4 right-4 z-50 px-4 py-2 bg-[var(--bg)] text-[var(--text)] rounded'
     >
       Toggle {dark ? 'Light' : 'Dark'} Mode
     </button>
