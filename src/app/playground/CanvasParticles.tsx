@@ -59,7 +59,7 @@ const CanvasParticles = () => {
         const p = particles[i];
         const isMouse = p.isMouse;
 
-        let brightness = 0.5; // default brightness
+        let brightness = 0.2; // default brightness
 
         if (!isMouse && mouse.x !== null && mouse.y !== null) {
           const dx = p.x - mouse.x;
@@ -87,7 +87,7 @@ const CanvasParticles = () => {
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < maxDist) {
-            let alpha = 0.1 + 0.5 * (1 - dist / maxDist); // default dimmed line
+            let alpha = 0.1 + 0.2 * (1 - dist / maxDist); // default dimmed line
 
             // === Boost alpha if either point is in spotlight ===
             if (mouse.x !== null && mouse.y !== null) {
