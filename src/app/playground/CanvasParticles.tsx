@@ -12,7 +12,7 @@ const CanvasParticles = () => {
   }[] = [];
 
   const mouse = { x: null as number | null, y: null as number | null };
-  const numParticles = 160; // doubled from 80
+  const numParticles = 120;
   const maxDist = 120;
   const spotlightRadius = 180;
 
@@ -69,68 +69,26 @@ const CanvasParticles = () => {
           p.y = mouse.y;
         }
       }
-
-      // === 2. Draw particles with spotlight brightness ===
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        const isMouse = p.isMouse;
-
-        let brightness = 0.2; // default brightness
-
-        if (!isMouse && mouse.x !== null && mouse.y !== null) {
-          const dx = p.x - mouse.x;
-          const dy = p.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < spotlightRadius) {
-            const boost = 1 - dist / spotlightRadius;
-            brightness += boost * 0.5; // boost to max 1.0
-          }
-        }
-
+      // Draw particles
+      for (const p of particles) {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, isMouse ? 3 : 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${dotRGB},${isMouse ? 0.8 : brightness})`;
+        ctx.arc(p.x, p.y, p.isMouse ? 3 : 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.8})`;
         ctx.fill();
       }
 
-      // === 3. Draw connecting lines ===
+      // Draw lines (no gradient, static alpha)
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i];
           const b = particles[j];
-
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDist) {
-            // Midpoint of the line
-            const mx = (a.x + b.x) / 2;
-            const my = (a.y + b.y) / 2;
-
-            // Distance to mouse
-            let mouseAlpha = 0;
-            if (mouse.x !== null && mouse.y !== null) {
-              const mDist = Math.sqrt(
-                (mx - mouse.x) ** 2 + (my - mouse.y) ** 2
-              );
-              if (mDist < spotlightRadius) {
-                mouseAlpha = 1 - mDist / spotlightRadius;
-              }
-            }
-
-            // Base opacity from distance between particles
-            const baseAlpha = 0.2 * (1 - dist / maxDist);
-
-            // Final alpha blends both
-            const finalAlpha = baseAlpha + mouseAlpha * 0.8; // brighten near cursor
-
-            // Optional: gradient stroke (if you want fancier fade)
-            const gradient = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-            gradient.addColorStop(0, `rgba(${dotRGB}, ${finalAlpha})`);
-            gradient.addColorStop(1, `rgba(${dotRGB}, ${finalAlpha * 0.8})`);
-
-            ctx.strokeStyle = gradient;
+            const alpha = 0.8 * (1 - dist / maxDist);
+            ctx.strokeStyle = `rgba(${dotRGB}, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -138,6 +96,28 @@ const CanvasParticles = () => {
           }
         }
       }
+
+      // Glow spotlight effect
+      if (mouse.x !== null && mouse.y !== null) {
+        ctx.globalCompositeOperation = 'lighter';
+        const gradient = ctx.createRadialGradient(
+          mouse.x,
+          mouse.y,
+          0,
+          mouse.x,
+          mouse.y,
+          spotlightRadius
+        );
+        gradient.addColorStop(0, `rgba(${dotRGB}, 0.25)`);
+        gradient.addColorStop(1, `rgba(${dotRGB}, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, spotlightRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalCompositeOperation = 'source-over'; // reset
+      }
+
       requestAnimationFrame(draw);
     };
 
