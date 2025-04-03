@@ -57,7 +57,7 @@ const projects = [
       'Design and implement a professional website for a pole dancer.',
     image: websitePoleDance,
     link: 'https://vivianpoledance.vercel.app/',
-    design: '/projects/ux-dancer',
+    design: '/projects/dancer',
     code: 'https://github.com/ppaann/vivian.pole.dance.app',
   },
   {
@@ -116,7 +116,6 @@ export const Projects = () => {
                     {project.link && (
                       <a
                         href={project.link}
-                        target='_blank'
                         className='inline-flex justify-center'
                       >
                         <Button className='md:w-auto bg-gradient-to-r from-purple-500 to-blue-700 font-semibold text-white/90 px-8 py-2 rounded-xl'>
@@ -127,7 +126,6 @@ export const Projects = () => {
                     {project.design && (
                       <a
                         href={project.design}
-                        target='_blank'
                         className='inline-flex justify-center md:pl-8'
                       >
                         <SecondaryButton>Design</SecondaryButton>
