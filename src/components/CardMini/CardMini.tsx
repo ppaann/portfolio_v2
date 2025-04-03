@@ -9,7 +9,7 @@ interface CardMiniProps {
 
 const CardMini: React.FC<CardMiniProps> = ({ title, description, tools }) => {
   return (
-    <div className='card-gradient-border rounded-lg p-6 shadow-lg relative card-gradient-border transition duration-300 hover:shadow-glow-sm-cyan dark:hover:shadow-glow-md-purple'>
+    <div className='card-gradient-border rounded-lg p-6 shadow-lg relative card-gradient-border transition duration-300 hover:shadow-glow-sm-cyan dark:hover:shadow-glow-md-purple cursor-pointer'>
       <div
         style={{ padding: '1rem', background: '#fff', borderRadius: '0.5rem' }}
       >
