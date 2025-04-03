@@ -41,5 +41,5 @@ yarn-error.log*
 next-env.d.ts
 
 # local experiment files
-/playground
-/demo
+/src/app/playground
+/src/app/demo
