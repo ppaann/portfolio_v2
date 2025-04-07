@@ -6,7 +6,7 @@ import { Lab } from '@/sections/Lab';
 export default function Home() {
   return (
     <div className='flex flex-col gap-8 row-start-2 items-center sm:items-start'>
-      <Hero />
+      <div className='text-3xl text-center font-bold'>Hello new version!</div>
       <Projects />
       <Lab />
       <About />
