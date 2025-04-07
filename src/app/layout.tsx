@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Luxurious_Roman } from 'next/font/google';
 import './globals.css';
-// import { Navigation } from '@/sections';
-// import { Footer } from '@/sections/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from 'next-themes';
 import { LayoutWrapper } from '@/context/LayoutContext';
 import { LayoutContent } from '@/components/layouts/LayoutContent';
-// import NewLayout from '@/components/layouts/NewLayout';
-// import OldLayout from '@/components/layouts/OldLayout';
 
 export const metadata: Metadata = {
   title: "Pan's Portfolio",
@@ -35,7 +31,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const Layout = isNewLayout ? NewDesignLayout : OldDesignLayout;
   return (
     <html lang='en' suppressHydrationWarning>
       <body
