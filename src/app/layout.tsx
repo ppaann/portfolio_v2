@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Luxurious_Roman } from 'next/font/google';
 import './globals.css';
-import { Navigation } from '@/sections';
-import { Footer } from '@/sections/Footer';
+// import { Navigation } from '@/sections';
+// import { Footer } from '@/sections/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from 'next-themes';
+import { LayoutWrapper } from '@/context/LayoutContext';
+import { LayoutContent } from '@/components/layouts/LayoutContent';
+// import NewLayout from '@/components/layouts/NewLayout';
+// import OldLayout from '@/components/layouts/OldLayout';
+
+export const metadata: Metadata = {
+  title: "Pan's Portfolio",
+  description: 'UX Developer Portfolio',
+};
 
 const luxuriousRoman = Luxurious_Roman({
   variable: '--font-serif',
@@ -21,29 +30,23 @@ const interSans = Inter({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: "Pan's Portfolio",
-  description: 'UX Developer Portfolio',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const Layout = isNewLayout ? NewDesignLayout : OldDesignLayout;
   return (
     <html lang='en' suppressHydrationWarning>
       <body
         className={`${luxuriousRoman.variable} ${geistMono.variable} ${interSans.variable} antialiased`}
       >
-        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <Navigation />
-
-          <main>{children}</main>
-
-          <Footer />
-          <Analytics />
-        </ThemeProvider>
+        <LayoutWrapper>
+          <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+            <LayoutContent>{children}</LayoutContent>
+            <Analytics />
+          </ThemeProvider>
+        </LayoutWrapper>
       </body>
     </html>
   );
