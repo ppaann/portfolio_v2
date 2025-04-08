@@ -20,6 +20,10 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        neonCyan: '#00FFFF',
+        neonBlue: '#0077FF',
+        neonPurple: '#7F00FF',
+        neonMagenta: '#FF00FF',
       },
       animation: {
         fadeInUp: 'fadeInUp 0.8s ease-out forwards',
