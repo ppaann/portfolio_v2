@@ -1,5 +1,5 @@
-import { FadeInSection, ThemeToggle } from '@/components';
-import CanvasParticles from './CanvasParticles';
+import { CanvasParticles, FadeInSection } from '@/components';
+import { ThemeToggle } from '@/modules';
 import Hero from './Hero';
 import MouseGhost from './MouseGhost';
 // import OrigamiGrid from './OCanvas';
@@ -7,10 +7,10 @@ import MouseGhost from './MouseGhost';
 const DemoProject = () => {
   return (
     <div className='relative h-screen w-screen overflow-hidden'>
-      <CanvasParticles />
       {/* <OrigamiGrid /> */}
 
       <ThemeToggle />
+      <CanvasParticles />
 
       <Hero />
 

@@ -73,7 +73,7 @@ const CanvasParticles = () => {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.isMouse ? 3 : 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.8})`;
+        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.5})`;
         ctx.fill();
       }
 
