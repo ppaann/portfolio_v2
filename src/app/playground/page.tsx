@@ -1,4 +1,4 @@
-import { CanvasParticles, FadeInSection } from '@/components';
+import { FadeInSection } from '@/components';
 import { ThemeToggle } from '@/modules';
 import Hero from './Hero';
 import MouseGhost from './MouseGhost';
@@ -10,7 +10,7 @@ const DemoProject = () => {
       {/* <OrigamiGrid /> */}
 
       <ThemeToggle />
-      <CanvasParticles />
+      {/* <CanvasParticles /> */}
 
       <Hero />
 
