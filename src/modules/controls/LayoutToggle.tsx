@@ -9,7 +9,7 @@ const ToggleLayoutButton = () => {
     <button
       onClick={toggleLayout}
       title='Switch Layout'
-      className='p-2 rounded-full hover:bg-purple-400/10 transition duration-300 ease-in-out'
+      className='p-1 rounded-full hover:bg-purple-400/10 transition duration-300 ease-in-out'
     >
       <ArrowsRightLeftIcon className='size-5 text-[var(--text)]' />
     </button>
