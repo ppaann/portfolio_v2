@@ -23,7 +23,7 @@ const Navigation = () => {
               href='/home'
               className='text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 animate-gradient-pulse bg-400%'
             >
-              Your Name
+              Pan&apos; Portfolio
             </a>
           </div>
           <div className='inline-flex items-center space-x-4'>
