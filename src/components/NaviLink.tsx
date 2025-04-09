@@ -18,7 +18,7 @@ const NavLink = ({ href, name }: NavLinkProps) => {
   return (
     <Link
       href={href}
-      className='hover:text-blue-500 dark:hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-semibold transition-colors'
+      className='text-gray-800 dark:text-gray-200 font-medium relative px-4'
       aria-current={isActive ? 'page' : undefined}
     >
       {name}

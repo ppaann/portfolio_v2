@@ -20,7 +20,7 @@ const NavLink = ({ href, name }: NavLinkProps) => {
     <Link
       href={href}
       className={twMerge(
-        'text-gray-800 dark:text-gray-200 font-medium relative',
+        'hover:text-blue-500 dark:hover:text-cyan-400 px-3 py-2 text-base font-semibold transition-colors',
         `${
           isActive
             ? 'bg-purple-500 text-white' // Active state styles
