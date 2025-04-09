@@ -1,5 +1,5 @@
 import { NaviLink } from '@/components/v3';
-import { ThemeToggle } from '@/modules';
+import { LayoutToggle, ThemeToggle } from '@/modules';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import React from 'react';
 
@@ -40,6 +40,7 @@ const Navigation = () => {
                 <Bars3Icon className='size-5 block md:hidden' />
               </button>
 
+              <LayoutToggle />
               <ThemeToggle />
             </div>
           </div>

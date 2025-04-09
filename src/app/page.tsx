@@ -10,8 +10,6 @@ export default function Home() {
   const { isNewLayout } = useLayout();
   return isNewLayout ? (
     <div className='relative h-screen w-screen overflow-hidden'>
-      <div className='text-3xl text-center font-bold'>Hello new version!</div>
-
       <Hero3 />
     </div>
   ) : (
