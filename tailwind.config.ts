@@ -27,12 +27,20 @@ export default {
       },
       animation: {
         fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+        'gradient-pulse': 'gradient-pulse 4s ease infinite',
       },
       keyframes: {
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY("30px")' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        'gradient-pulse': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      backgroundSize: {
+        '400%': '400% 400%',
       },
     },
   },
