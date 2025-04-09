@@ -1,15 +1,18 @@
-import { Footer, Navigation } from '@/sections';
 import { LayoutToggle } from '@/modules';
+import { Footer, Navigation } from '@/sections';
+import { Float } from '@/components';
 
 export default function OldLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Navigation />
-      <LayoutToggle />
 
       <main>{children}</main>
 
       <Footer />
+      <Float>
+        <LayoutToggle />
+      </Float>
     </>
   );
 }
