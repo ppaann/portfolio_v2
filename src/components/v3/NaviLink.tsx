@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
 interface NavLinkProps {
   href: string;
@@ -18,7 +19,14 @@ const NavLink = ({ href, name }: NavLinkProps) => {
   return (
     <Link
       href={href}
-      className='text-gray-800 dark:text-gray-200 font-medium relative px-4'
+      className={twMerge(
+        'hover:text-blue-500 dark:hover:text-cyan-400 px-3 py-2 text-base font-semibold transition-colors',
+        `${
+          isActive
+            ? 'bg-purple-500 text-white' // Active state styles
+            : '' // Default and hover styles
+        }`
+      )}
       aria-current={isActive ? 'page' : undefined}
     >
       {name}

@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 const CanvasParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -12,9 +13,10 @@ const CanvasParticles = () => {
   }[] = [];
 
   const mouse = { x: null as number | null, y: null as number | null };
-  const numParticles = 120;
-  const maxDist = 120;
-  const spotlightRadius = 180;
+  const isSmallScreen = useMediaQuery('(max-width: 640px)');
+  const numParticles = isSmallScreen ? 60 : 120;
+  const maxDist = isSmallScreen ? 60 : 120;
+  const spotlightRadius = isSmallScreen ? 90 : 180;
 
   const hexToRgb = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -73,7 +75,7 @@ const CanvasParticles = () => {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.isMouse ? 3 : 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.8})`;
+        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.4})`;
         ctx.fill();
       }
 
@@ -87,7 +89,7 @@ const CanvasParticles = () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDist) {
-            const alpha = 0.8 * (1 - dist / maxDist);
+            const alpha = 0.6 * (1 - dist / maxDist);
             ctx.strokeStyle = `rgba(${dotRGB}, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -144,7 +146,7 @@ const CanvasParticles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className='fixed top-0 left-0 w-full h-full z-[-1] dark:bg-black'
+      className='absolute top-0 left-0 w-full h-full z-[-1] dark:bg-black'
     />
   );
 };
