@@ -75,7 +75,7 @@ const CanvasParticles = () => {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.isMouse ? 3 : 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.2})`;
+        ctx.fillStyle = `rgba(${dotRGB},${p.isMouse ? 1 : 0.4})`;
         ctx.fill();
       }
 
@@ -89,7 +89,7 @@ const CanvasParticles = () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDist) {
-            const alpha = 0.4 * (1 - dist / maxDist);
+            const alpha = 0.6 * (1 - dist / maxDist);
             ctx.strokeStyle = `rgba(${dotRGB}, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
